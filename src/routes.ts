@@ -59,4 +59,4 @@ appRoutes.use(adminRouter)
 // });
 
 
-export default appRoutes;
+export default authRouter;
