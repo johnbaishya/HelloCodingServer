@@ -17,7 +17,7 @@ const Company_1 = __importDefault(require("../model/Company"));
 const auth_1 = require("../../../libs/auth");
 const reqres_1 = require("../../../libs/reqres");
 const EntityEnum_1 = require("../types/EntityEnum");
-const Gallery_1 = __importDefault(require("../model/Gallery"));
+const Gallery_1 = __importDefault(require("../../../models/Gallery"));
 const ImageHandler_1 = require("../../../services/ImageHandler");
 // to create a company
 /**

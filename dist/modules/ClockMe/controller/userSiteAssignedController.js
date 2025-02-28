@@ -16,7 +16,7 @@ exports.getSiteAssignedBySiteId = exports.getSitesAssigned = exports.deleteUserS
 const ClockMeUserSiteAssigned_1 = __importDefault(require("../models/ClockMeUserSiteAssigned"));
 const ClockMeSite_1 = __importDefault(require("../models/ClockMeSite"));
 const auth_1 = require("../../../libs/auth");
-const User_1 = __importDefault(require("../../Common/model/User"));
+const User_1 = __importDefault(require("../../../models/User"));
 const reqres_1 = require("../../../libs/reqres");
 //  to assign a site to a user
 /**

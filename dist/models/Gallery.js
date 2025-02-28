@@ -34,7 +34,7 @@ var __importStar = (this && this.__importStar) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 const mongoose_1 = __importStar(require("mongoose"));
-const EntityEnum_1 = require("../types/EntityEnum");
+const EntityEnum_1 = require("../modules/Common/types/EntityEnum");
 const gallerySchema = new mongoose_1.default.Schema({
     entity_name: {
         type: String,

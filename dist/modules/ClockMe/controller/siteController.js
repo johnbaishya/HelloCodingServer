@@ -18,7 +18,7 @@ const auth_1 = require("../../../libs/auth");
 const Company_1 = __importDefault(require("../../Common/model/Company"));
 const reqres_1 = require("../../../libs/reqres");
 const EntityEnum_1 = require("../../Common/types/EntityEnum");
-const Gallery_1 = __importDefault(require("../../Common/model/Gallery"));
+const Gallery_1 = __importDefault(require("../../../models/Gallery"));
 const ImageHandler_1 = require("../../../services/ImageHandler");
 //  to add a site
 /**

@@ -13,10 +13,10 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.verifyAuthentication = exports.ChangeUserProfilePicture = exports.getUser = exports.updateUser = exports.userLogin = exports.userRegister = void 0;
-const User_1 = __importDefault(require("../../../models/User"));
+const User_1 = __importDefault(require("../models/User"));
 const bcryptjs_1 = __importDefault(require("bcryptjs"));
-const auth_1 = require("../../../libs/auth");
-const reqres_1 = require("../../../libs/reqres");
+const auth_1 = require("../libs/auth");
+const reqres_1 = require("../libs/reqres");
 // for register=======================================================================================================
 /**
  * @swagger
@@ -56,7 +56,7 @@ const userRegister = (req, res) => __awaiter(void 0, void 0, void 0, function* (
         const { first_name, last_name, email, password } = req.body;
         // Validate user input
         if (!(email && password && first_name && last_name)) {
-            res.status(400).send("All input is required");
+            res.status(400).send("All inputs are required");
             return;
         }
         // check if user already exist
@@ -79,7 +79,8 @@ const userRegister = (req, res) => __awaiter(void 0, void 0, void 0, function* (
             id: user.id,
             email,
             first_name: user.first_name,
-            last_name: user.last_name
+            last_name: user.last_name,
+            role: user.role,
         };
         const token = (0, auth_1.createToken)(params);
         // save user token
@@ -88,10 +89,15 @@ const userRegister = (req, res) => __awaiter(void 0, void 0, void 0, function* (
             first_name: user.first_name,
             last_name: user.last_name,
             email: user.email,
-            token: token,
+            profile_pic: user.profile_pic,
+            role: user.role,
+        };
+        const newResponse = {
+            user: newUser,
+            token
         };
         // return new user
-        res.status(201).json(newUser);
+        res.status(201).json(newResponse);
     }
     catch (err) {
         console.log(err);
@@ -146,7 +152,8 @@ const userLogin = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
                 id: user.id,
                 email,
                 first_name: user.first_name,
-                last_name: user.last_name
+                last_name: user.last_name,
+                role: user.role,
             };
             const token = (0, auth_1.createToken)(params);
             // save user token
@@ -156,10 +163,15 @@ const userLogin = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
                 first_name: user.first_name,
                 last_name: user.last_name,
                 email: user.email,
-                token: token,
+                profile_pic: user.profile_pic,
+                role: user.role,
+            };
+            const newResponse = {
+                user: newUser,
+                token,
             };
             // user
-            res.status(200).json(newUser);
+            res.status(200).json(newResponse);
         }
         else {
             res.status(400).send("Invalid Credentials");

@@ -21,10 +21,10 @@ app_1.default.get('/swagger.json', (req, res) => {
     res.json(swagger_json_1.default);
 });
 // Start the Express server
-// uncomment this code while running in local-------------------
-// app.listen(PORT, () => {
-//   console.log(`Server running on http://localhost:${PORT}`);
-// });
+// uncomment below code while running in local-------------------
+app_1.default.listen(PORT, () => {
+    console.log(`Server running on http://localhost:${PORT}`);
+});
 // ----------------------------------------------------------
 // Graceful shutdown
 process.on('SIGTERM', () => {
