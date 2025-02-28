@@ -42,7 +42,7 @@ appRoutes.use(authRouter);
 appRoutes.use(protectedRouter);
 appRoutes.use(adminRouter);
 // response for unidentified routes
-// appRoutes.use((req, res) => {
-//     res.status(404).json({ message: "Route not found" });
-// });
-exports.default = authRouter;
+appRoutes.use((req, res) => {
+    res.status(404).json({ message: "Route not found" });
+});
+exports.default = appRoutes;
