@@ -48,9 +48,9 @@ adminRouter.post("/module",uploadMdFile.single("file"),addModule);
 // router.use("/",commonRoutes)
 
 const appRoutes = Router();
-appRoutes.use(authRouter)
-appRoutes.use(protectedRouter)
-appRoutes.use(adminRouter)
+appRoutes.use("/auth",authRouter)
+appRoutes.use("/",protectedRouter)
+appRoutes.use("/admin",adminRouter)
 
 
 // response for unidentified routes

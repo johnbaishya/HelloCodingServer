@@ -38,9 +38,9 @@ adminRouter.post("/module", uploadMdFile_1.default.single("file"), moduleControl
 // router.use("/getmeal",getMealRoutes )
 // router.use("/",commonRoutes)
 const appRoutes = (0, express_1.Router)();
-appRoutes.use(authRouter);
-appRoutes.use(protectedRouter);
-appRoutes.use(adminRouter);
+appRoutes.use("/auth", authRouter);
+appRoutes.use("/", protectedRouter);
+appRoutes.use("/admin", adminRouter);
 // response for unidentified routes
 appRoutes.use((req, res) => {
     res.status(404).json({ message: "Route not found" });
